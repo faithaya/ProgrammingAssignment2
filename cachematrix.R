@@ -1,17 +1,17 @@
 # Assignment: Caching the Inverse of a Matrix through Lexical Scoping
 
-# Goal: Write a pair funtion that cache the inverse of a matrix
+# Goal: Write a pair function that cache the inverse of a matrix
 # 
-# Note: Scoping is the mechanism within R that determines how R finds sympbols
-# (.ie programming lanauge elements) to retrieve their values during the execution
+# Note: Scoping is the mechanism within R that determines how R finds symbols
+# (i.e. programming language elements) to retrieve their values during the execution
 # of an R script. 
 # 
 # Note: Lexical Scoping is used to retrieve values from object based on the way functions are
 # nested when they are written.
 # 
-# Note: Cache is due to how the code is built at design time, not how the code is called 
-# at runtime.Cache is a way to store objects in memory to accelerate subsequent access
-# to the same object.
+# Note: Cache is due to how the code is built at design time NOT how the code is called 
+# at runtime. Cache is a way to store objects in memory to accelerate subsequent access
+# to the SAME object.
 
 
 
@@ -24,7 +24,7 @@
 #    a) Set the value of the vector
 #    b) Get the value of the vector
 #    c) Set the value of inverse
-#    d) get the value of the inverse
+#    d) Get the value of the inverse
 
 # STEP 1: Initialize Objects
 makeCacheMatrix <- function(x= matrix()){   
@@ -32,7 +32,6 @@ makeCacheMatrix <- function(x= matrix()){
   
   a <- NULL # 'a' is set to NULL and initialize it as an object within makeVector() environment
   #  to be used later in the code    
-  #Define the "behavior" of the functions in the makeVector()
   
   # STEP 2: Define the "Behaviors" or Functions for Objects of Type MakeVector()
   set <- function (b) #set() takes an argument named 'b'  
@@ -59,11 +58,11 @@ makeCacheMatrix <- function(x= matrix()){
 
 # 2. This function computes the inverse of the special "matrix"
 # returned by makeCahcematrix above. If the inverse has already been calculated 
-# (and the matrix has not changed,) then the cachesolve shold retrieve
+# (and the matrix has not changed,) then the cachesolve should retrieve
 # the inverse from the cache.
 
 
-# Step 1: Initialize objects : with a single argument'x' and an ellipse '...' to alow additional
+# Step 1: Initialize objects : with a single argument 'x' and an ellipse '...' to allow additional
 # arguments in the function
 cacheSolve<- function (x,...){
   
@@ -72,9 +71,9 @@ cacheSolve<- function (x,...){
   a<- x$getinverse() #calls the 'getinverse' on the input object 'x'
   if(!is.null(a)) { #checks to see where there is NULL. If the value is not equal to NULL
     message("getting cached data") #we have a valid , cache inverse
-    return(a) # and can reurn to the parent environment
+    return(a) # and can return to the parent environment
   }
-  data<- x$get() # if the result of '!is.null(a)' is FALSe, cachemean() gets the vector from the
+  data<- x$get() # if the result of '!is.null(a)' is FALSE, cachemean() gets the vector from the
   a<- solve(data, ...) #input object 'x' to set the inverse in the input object, and 
   x$setinverse(a) 
   a #returns the value of the inverse to the parent environment by printing the inverse object
